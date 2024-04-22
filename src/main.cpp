@@ -12,7 +12,7 @@ void setup()
   CAN0.begin(CAN_BPS_500K);
   CAN0.watchFor();
 
-  Serial.println("\n\n---CAN logger ---");
+  Serial.println("\n\n--- CAN logger v1.0 ---");
 }
 
 void loop()
