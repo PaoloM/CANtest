@@ -23,7 +23,10 @@ void loop()
   if (CAN0.read(can_message))
   {
     Serial.print(counter++);
+
     Serial.print(separator); Serial.print(can_message.id, HEX);
+
+    Serial.print(separator); Serial.print(can_message.length, HEX);
 
     for (int i = 0; i < can_message.length; i++)
     {
