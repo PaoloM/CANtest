@@ -2,6 +2,7 @@
 #include <esp32_can.h>
 
 const char separator = ',';
+int counter = 0;
 
 void setup()
 {
@@ -21,12 +22,12 @@ void loop()
 
   if (CAN0.read(can_message))
   {
-    Serial.print(can_message.id, DEC);
+    Serial.print(counter++);
+    Serial.print(separator); Serial.print(can_message.id, HEX);
 
     for (int i = 0; i < can_message.length; i++)
     {
-      Serial.print(separator);
-      Serial.print(can_message.data.byte[i], DEC);
+      Serial.print(separator); Serial.print(can_message.data.byte[i], HEX);
     }
 
     Serial.println();
